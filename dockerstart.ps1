@@ -1,0 +1,1 @@
+docker run --env ASPNETCORE_ENVIRONMENT=Test --name mysample -p 55291:55291 -d  reactsample:latest

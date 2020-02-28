@@ -1,0 +1,35 @@
+type Car {
+  brand: String
+  model: String
+  year: String
+  fastEnough: Boolean!
+}
+
+type City {
+  name: String
+  country: String
+  population: Int
+}
+
+input CarFormInput {
+  brand: String
+  model: String
+  year: String
+  fastEnough: Boolean!
+}
+
+input CityFormInput {
+  name: String
+  country: String
+  population: Int
+}
+
+type Query {
+  carForm: Car
+  cityForm: City
+}
+
+type Mutation {
+  persistCarForm(carFormInput: CarFormInput!): String
+  persistCityForm(cityFormInput: CityFormInput!): String
+}
