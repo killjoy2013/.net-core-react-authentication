@@ -1,10 +1,13 @@
 import * as React from "react";
 import { Router, Switch, Route } from "react-router";
 import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 import { createBrowserHistory } from "history";
+import fetchproxy from "../helpers/fetch";
 import Cars from "./Cars";
 import Cities from "./Cities";
 import Home from "./Home";
+import { AxiosResponse, AxiosError } from "axios";
 import {
   AppBar,
   Toolbar,
@@ -40,6 +43,19 @@ const Routes = () => {
             <Link className={classes.href} to="/cities">
               Cities
             </Link>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => {
+                let form: any = document.createElement("FORM");
+                form.setAttribute("method", "POST");
+                form.setAttribute("action", "/Home/Logout");
+                document.body.appendChild(form);
+                form.submit();
+              }}
+            >
+              Logout
+            </Button>
           </Toolbar>
         </AppBar>
         <Switch>
