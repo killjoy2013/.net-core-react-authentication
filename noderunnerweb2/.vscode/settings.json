@@ -1,0 +1,7 @@
+{
+  "typescript.tsserver.log": "verbose",
+
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#7ce78a"
+  }
+}

@@ -44,6 +44,9 @@
     <None Update="certs\cert.pfx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="noderunnerweb2\public\manifest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="turkcellRootca2Der.cer">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
