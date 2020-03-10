@@ -12,11 +12,12 @@ namespace reactsample.Controllers
     public class AuthorizationContoller : Controller
     {
         private readonly IConfiguration _configuration;
-        private readonly IHttpClient _httpClient;
-        public AuthorizationContoller(IConfiguration configuration, IHttpClient httpClient)
+        //private readonly IHttpClient _httpClient;
+        //public AuthorizationContoller(IConfiguration configuration, IHttpClient httpClient)
+        public AuthorizationContoller(IConfiguration configuration)
         {
             _configuration = configuration;
-            _httpClient = httpClient;
+            //_httpClient = httpClient;
         }
 
         [HttpPost("/authorization")]
@@ -27,14 +28,14 @@ namespace reactsample.Controllers
             return Ok(new { accessToken, refreshToken });
         }
 
-        [HttpPost("/refresh")]
-        public async Task<IActionResult> RefreshTokens([FromBody]RefreshRequest request)
-        {
-            var response = await (_httpClient as StandardHttpClient).RequestRefreshTokenAsync(request.refresh_token);
-            return Ok(new {
-                access_token = response.AccessToken,
-                refresh_token = response.RefreshToken
-            });
-        }
+        //[HttpPost("/refresh")]
+        //public async Task<IActionResult> RefreshTokens([FromBody]RefreshRequest request)
+        //{
+        //    var response = await (_httpClient as StandardHttpClient).RequestRefreshTokenAsync(request.refresh_token);
+        //    return Ok(new {
+        //        access_token = response.AccessToken,
+        //        refresh_token = response.RefreshToken
+        //    });
+        //}
     }
 }
