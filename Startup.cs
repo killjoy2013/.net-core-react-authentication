@@ -63,8 +63,8 @@ namespace reactsample
             app.UseAuthentication();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
-
             app.UseRouting();
+
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
@@ -72,11 +72,9 @@ namespace reactsample
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}"
                     );
-
             });
             app.Use(async (context, next) =>
             {
-
                 if (!context.User.Identity.IsAuthenticated)
                 {
                     await context.ChallengeAsync();
@@ -85,6 +83,7 @@ namespace reactsample
                 {
                     await next();
                 }
+
             });
             app.UseSpa(spa =>
             {
